@@ -6,8 +6,7 @@
 		"isolatedModules": true,
 		"esModuleInterop": true,
 		"allowJs": true,
-		"lib": ["es5", "dom", "esnext"],
-		"downlevelIteration": true
+		"lib": ["es5", "dom", "esnext"]
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]

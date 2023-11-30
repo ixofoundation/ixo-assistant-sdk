@@ -1,7 +1,6 @@
-import fetch from 'node-fetch';
-
 import * as AssistantTypes from '../types/assistant';
 import { hex_to_uint8Arr } from './encoding';
+import { fetchPolyfill } from './fetch-polyfill';
 import Observable from './observer';
 
 export default class Assistant extends Observable {
@@ -143,6 +142,7 @@ export default class Assistant extends Observable {
 	}
 
 	async newChat(stream = false, contextMessages?: AssistantTypes.ChatMessage[]) {
+		await fetchPolyfill();
 		if (this.id) throw new Error('Chat already instantiated');
 		if (this.messages.length) return;
 		if (contextMessages?.length) this.messages = contextMessages;
@@ -171,6 +171,7 @@ export default class Assistant extends Observable {
 	}
 
 	async chat(stream = false, message: string) {
+		await fetchPolyfill();
 		if (!this.id) throw new Error('Instantiate a new chat before sending messages');
 		this.resetCount();
 		this.addMessage({
