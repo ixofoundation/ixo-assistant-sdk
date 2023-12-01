@@ -7,12 +7,14 @@ export default class Assistant extends Observable {
     private did;
     private network;
     private count;
+    private maxCount;
     private id?;
     private messages;
     private transactionHandler?;
     constructor({ apiKey, address, did, network, assistantUrl }: AssistantTypes.Config);
     private resetCount;
     private incrementCount;
+    private get countReached();
     private get countExceeded();
     private addMessage;
     private addStreamMessage;
