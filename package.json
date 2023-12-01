@@ -1,6 +1,6 @@
 {
 	"name": "@ixo/assistant-sdk",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "An SDK to easily access the Ixo transaction assistant",
 	"author": "ixo",
 	"homepage": "https://github.com/ixofoundation/ixo-assistant-sdk#readme",

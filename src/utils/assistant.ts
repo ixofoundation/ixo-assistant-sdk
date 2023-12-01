@@ -10,6 +10,7 @@ export default class Assistant extends Observable {
 	private did: string;
 	private network: string;
 	private count: number = 0;
+	private maxCount: number = 1;
 
 	private id?: string = undefined;
 	private messages: AssistantTypes.Message[] = [];
@@ -38,8 +39,12 @@ export default class Assistant extends Observable {
 		this.count += 1;
 	}
 
+	private get countReached() {
+		return this.count === this.maxCount;
+	}
+
 	private get countExceeded() {
-		return this.count >= 1;
+		return this.count > this.maxCount;
 	}
 
 	private addMessage(message: AssistantTypes.Message) {
